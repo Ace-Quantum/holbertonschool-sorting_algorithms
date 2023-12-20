@@ -17,7 +17,7 @@ void bubble_sort(int *array, size_t size)
                 array[j] = array[j + 1];
                 array[j + 1] = temp;
                 for (k = 0; k < size; k++)
-                    printf("%d ", array[k]);
+                    printf("%d, ", array[k]);
                 printf("\n");
             }
         j++;
