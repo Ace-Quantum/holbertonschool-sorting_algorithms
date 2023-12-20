@@ -20,7 +20,9 @@ void bubble_sort(int *array, size_t size)
                     printf("%d ", array[k]);
                 printf("\n");
             }
+        j++;
         }
+    i++;
     }
     
 }
