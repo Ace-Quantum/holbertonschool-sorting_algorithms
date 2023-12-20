@@ -4,9 +4,6 @@
 
 void bubble_sort(int *array, size_t size)
 {
-    /*listint_t *leadnode, *follownode;
-    lol looks like we're not doing linked lists apparantly.*/
-
     size_t i = 0, j = 0, k = 0;
     int temp;
 
