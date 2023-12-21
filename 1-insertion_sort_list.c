@@ -4,7 +4,7 @@
 
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *tracknode = list->next;
+    listint_t *tracknode = *list->next;
 
     printf("tracknode val: %d\ntracknext val: %d\n", tracknode->n, tracknode->next->n);
     while (tracknode != NULL && tracknode->n < tracknode->next->n)
