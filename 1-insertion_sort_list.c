@@ -18,6 +18,7 @@ void insertion_sort_list(listint_t **list)
             swap_node_back_one(tracknode);
             print_list(*list);
         }
+        *tracknode = *list;
     }
     return;
 }
