@@ -7,18 +7,15 @@ void insertion_sort_list(listint_t **list)
     listint_t *tracknode = *list;
     int listlen = getlist_len(*list), i;
 
-    for (i = 0; i <= listlen; i++)
+    while (tracknode != NULL && tracknode->prev != NULL && tracknode->n < tracknode->prev->n)
     {
-        while (tracknode != NULL && tracknode->prev != NULL && tracknode->n < tracknode->prev->n)
-        {
-            tracknode = tracknode->next;
-        }
-        while (tracknode != NULL && tracknode->prev != NULL && tracknode->n > tracknode->prev->n)
-        {
-            swap_node_back_one(tracknode);
-            print_list(*list);
-        }
-        tracknode = *list;
+        printf("iterating track node\ntracknode value: %s, tracknext value: %s\n", tracknode->n, tracknode->next->n);
+        tracknode = tracknode->next;
+    }
+    while (tracknode != NULL && tracknode->prev != NULL && tracknode->n > tracknode->prev->n)
+    {
+        swap_node_back_one(tracknode);
+        print_list(*list);
     }
     return;
 }
