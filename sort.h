@@ -23,7 +23,7 @@ void bubble_sort(int *array, size_t size);
 
 void insertion_sort_list(listint_t **list);
 
-void swap_node_back_one(listint_t swap_node1);
+void swap_node_back_one(listint_t *swap_node);
 
 int getlist_len(const listint_t *h);
 
