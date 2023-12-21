@@ -9,11 +9,11 @@ void insertion_sort_list(listint_t **list)
 
     for (i = 0; i <= listlen; i++)
     {
-        while (tracknode->n < tracknode->prev->n)
+        while (tracknode != NULL && tracknode->prev != NULL && tracknode->n < tracknode->prev->n)
         {
             tracknode = tracknode->next;
         }
-        while (tracknode->n > tracknode->prev->n)
+        while (tracknode != NULL && tracknode->prev != NULL && tracknode->n > tracknode->prev->n)
         {
             swap_node_back_one(tracknode);
             print_list(*list);
