@@ -12,7 +12,7 @@ void insertion_sort_list(listint_t **list)
         printf("iterating track node\ntracknode value: %d, tracknext value: %d\n", tracknode->n, tracknode->next->n);
         tracknode = tracknode->next;
     }
-    while (tracknode != NULL && tracknode->prev != NULL && tracknode->n > tracknode->prev->n)
+    while (tracknode != NULL && tracknode->n > tracknode->prev->n)
     {
         swap_node_back_one(tracknode);
         print_list(*list);
