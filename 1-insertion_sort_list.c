@@ -9,7 +9,7 @@ void insertion_sort_list(listint_t **list)
     listint_t *placeholder = NULL;
 
     if (list == NULL || *list == NULL || (*list)->next == NULL)
-        return
+        return;
 
     tracknode = (*list)->next;
 
