@@ -4,41 +4,39 @@
 
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *tracknode = *list->next;
+    listint_t *tracknode = NULL;
+    listint_t *last = NULL;
+    listint_t *placeholder = NULL;
 
-    printf("tracknode val: %d\ntracknext val: %d\n", tracknode->n, tracknode->next->n);
-    while (tracknode != NULL && tracknode->n < tracknode->next->n)
+    if (list == NULL || *list == NULL || (*list)->next == NULL)
+        return
+
+    tracknode = (*list)->next;
+
+    while (tracknode != NULL)
     {
-        printf("iterating track node\ntracknode value: %d, tracknext value: %d\n", tracknode->n, tracknode->next->n);
-        tracknode = tracknode->next;
+        placeholder = tracknode->next;
+        last = tracknode->prev;
+
+        while (last != NULL && tracknode->n < last->n)
+        {
+            if (last->prev != NULL)
+                last->prev->next = tracknode;
+            last->next = tracknode->next;
+            tracknode->next = last;
+
+            tracknode->prev = last->prev;
+            last->prev = tracknode;
+            if (last->next != NULL)
+                last->next->prev = last;
+            
+            if (tracknode->prev == NULL)
+                (*list) = tracknode;
+
+            last = tracknode->prev;
+
+            print_list(*list);
+        }
+        current = placeholder;
     }
-    while (tracknode != NULL && tracknode->prev != NULL && tracknode->n > tracknode->prev->n)
-    {
-        swap_node_back_one(tracknode);
-        print_list(*list);
-    }
-    return;
-}
-
-int getlist_len(const listint_t *h)
-{
-	int num_nodes = 0;
-
-	while (h != NULL)
-	{
-		num_nodes++;
-		h = (*h).next;
-	}
-	return (num_nodes);
-}
-
-void swap_node_back_one(listint_t *swap_node)
-{
-    swap_node->prev->next = swap_node->next;
-    swap_node->next->prev = swap_node->prev;
-
-    swap_node->prev = swap_node->prev->prev;
-    swap_node->prev->prev->next = swap_node;
-
-    return;
 }
