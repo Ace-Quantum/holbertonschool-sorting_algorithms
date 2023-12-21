@@ -6,6 +6,7 @@ void insertion_sort_list(listint_t **list)
 {
     listint_t *tracknode = *list;
 
+    printf("tracknode val: %d\ntracknext val: %d\n", tracknode->n, tracknode->next->n);
     while (tracknode != NULL && tracknode->prev != NULL && tracknode->n < tracknode->prev->n)
     {
         printf("iterating track node\ntracknode value: %d, tracknext value: %d\n", tracknode->n, tracknode->next->n);
