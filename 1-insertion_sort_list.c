@@ -16,7 +16,7 @@ void insertion_sort_list(listint_t **list)
         while (tracknode->n > tracknode->prev->n)
         {
             swap_node_back_one(tracknode);
-            print_array;
+            print_list(*list);
         }
     }
     return();
