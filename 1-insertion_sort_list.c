@@ -4,7 +4,7 @@
 
 void insertion_sort_list(listint_t **list)
 {
-    listint_t tracknode = *list;
+    listint_t *tracknode = *list;
     int listlen = getlist_len(*list), i;
 
     for (i = 0; i <= listlen; i++)
