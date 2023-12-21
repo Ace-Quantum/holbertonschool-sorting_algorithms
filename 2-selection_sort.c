@@ -4,26 +4,27 @@
 
 void selection_sort(int *array, size_t size)
 {
-    int min, minindex;
-    size_t i, j;
+    size_t i, j, min, minindex;
 
-    for (i = 0; i < n - 1; i++)
+    for (i = 0; i < size - 1; i++)
     {
         min = array[i];
         minindex = i;
 
-        for (j = i; j < n; j++)
+        for (j = i; j < size; j++)
         {
             if (array[j] < array[minindex])
+            {
                 minindex = j;
                 min = array[minindex];
+            }
         }
 
         if (minindex != i)
         {
             array[minindex] = array[i];
             array[i] = min;
-            print_array(array);
+            print_array(array, size);
         }
     }
     return;
