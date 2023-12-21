@@ -19,7 +19,7 @@ void insertion_sort_list(listint_t **list)
             print_list(*list);
         }
     }
-    return();
+    return;
 }
 
 int getlist_len(const listint_t *h)
