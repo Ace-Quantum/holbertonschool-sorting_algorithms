@@ -10,8 +10,8 @@ void quick_sort(int *array, size_t size)
         return;
 
     pivot = partition(array, size);
-    quick_sort(array, pivot);
-    /*quick_sort(array + pivot + 1, size - pivot - 1);*/
+    /*quick_sort(array, pivot);*/
+    quick_sort(array + pivot + 1, size - pivot - 1);
 }
 
 size_t partition(int *array, size_t size)
