@@ -19,7 +19,7 @@ void sort(int *array, int low, int high, size_t size)
         indx = partition(array, low, high, size);
 
         sort(array, low, indx - 1, size);
-        sort(array, indx +1, high, size);
+        sort(array, indx + 1, high, size);
     }
 }
 
@@ -30,7 +30,7 @@ size_t partition(int *array, int low, int high, size_t size)
     int i = (low - 1);
     int j;
 
-    for (j = 0; j < high + 1; j++)
+    for (j = low; j < high + 1; j++)
     {
         if (array[j] <= pivot)
         {
