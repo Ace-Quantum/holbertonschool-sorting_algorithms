@@ -1,41 +1,53 @@
 #include "sort.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 void quick_sort(int *array, size_t size)
 {
-    size_t pivot;
+    int high = size - 1, low = 0;
 
-    if (size <= 1)
-        return;
-
-    pivot = partition(array, size);
-    /*quick_sort(array, pivot);*/
-    quick_sort(array + pivot + 1, size - pivot - 1);
+    sort(array, low, high, size);
 }
 
-size_t partition(int *array, size_t size)
+void sort(int *array, int low, int high, size_t size)
 {
-    int pivot = array[size - 1];
-    int temp;
-    size_t i = 0, j;
+    int indx;
 
-    for (j = 0; j < size - 1; j++)
+    if (low < high)
+    {
+        indx = partition(array, low, high, size);
+
+        sort(array, low, indx - 1, size);
+        sort(array, indx +1, high, size);
+    }
+}
+
+size_t partition(int *array, int low, int high, size_t size)
+{
+    int pivot = array[high];
+    int temp;
+    int i = (low - 1);
+    int j;
+
+    for (j = 0; j < high + 1; j++)
     {
         if (array[j] <= pivot)
         {
+            i++;
             temp = array[i];
             array[i] = array[j];
             array[j] = temp;
-            i++;
         }
     }
 
-    temp = array[i];
-    array[i] = array[size - 1];
-    array[size - 1] = temp;
+    if (array[high] != array[i + 1])
+    {
+        temp = array[high];
+        array[high] = array[i + 1];
+        array[i + 1] = temp;
+        print_array(array, size);
+    }
 
-    print_array(array, size);
-
-    return i;
+    return (i + 1);
 }
