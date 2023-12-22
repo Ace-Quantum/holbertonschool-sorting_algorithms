@@ -29,4 +29,6 @@ void quick_sort(int *array, size_t size);
 
 size_t partition(int *array, size_t size);
 
+void sort(int *array, int low, int high, size_t size);
+
 #endif
